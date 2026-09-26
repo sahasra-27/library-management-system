@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../services/api';
 
 export const AuthContext = createContext(null);
 
@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (username, password) => {
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/login', {
+      const response = await api.post('/auth/login', {
         username,
         password,
       });
@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = async (username, email, password, phone, role, occupation) => {
-    await axios.post('http://localhost:8080/api/auth/register', {
+    await api.post('/auth/register', {
       username,
       email,
       password,
@@ -60,11 +60,11 @@ export const AuthProvider = ({ children }) => {
   };
 
   const forgotPassword = async (email) => {
-    await axios.post('http://localhost:8080/api/auth/forgotpassword', { email });
+    await api.post('/auth/forgotpassword', { email });
   };
 
   const resetPassword = async (tokenParam, newPassword) => {
-    await axios.post('http://localhost:8080/api/auth/resetpassword', {
+    await api.post('/auth/resetpassword', {
       token: tokenParam,
       newPassword,
     });
@@ -72,7 +72,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      await axios.post('http://localhost:8080/api/auth/logout');
+      await api.post('/auth/logout');
     } catch (e) {
       console.error("Logout request failed", e);
     }

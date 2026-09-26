@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Card, CardContent, Typography, TextField, Button, Box, Grid, Avatar, CircularProgress, Alert } from '@mui/material';
-import api from '../../services/api';
+import api, { SERVER_BASE_URL } from '../../services/api';
 import { AuthContext } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
 
@@ -81,7 +81,7 @@ export default function Profile() {
             <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
                 <Avatar
-                  src={user?.profilePhoto ? `http://localhost:8080${user.profilePhoto}` : undefined}
+                  src={user?.profilePhoto ? (user.profilePhoto.startsWith('http') ? user.profilePhoto : `${SERVER_BASE_URL}${user.profilePhoto}`) : undefined}
                   sx={{ width: 120, height: 120 }}
                 />
               </Box>

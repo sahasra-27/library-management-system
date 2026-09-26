@@ -6,7 +6,7 @@ import {
 } from '@mui/material';
 import { Edit, Delete, Restore, FileUpload, FileDownload, Add } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import api from '../../services/api';
+import api, { API_BASE_URL } from '../../services/api';
 import { toast } from 'react-toastify';
 import { ToggleButtonGroup, ToggleButton, Grid, Card, CardContent, CircularProgress, List, ListItem, ListItemButton, ListItemText, Divider } from '@mui/material';
 import { Search, Clear, CloudDownload, History } from '@mui/icons-material';
@@ -202,11 +202,11 @@ export default function Books() {
   };
 
   const handleExportExcel = () => {
-    window.open('http://localhost:8080/api/books/export/excel', '_blank');
+    window.open(`${API_BASE_URL}/books/export/excel`, '_blank');
   };
 
   const handleExportCsv = () => {
-    window.open('http://localhost:8080/api/books/export/csv', '_blank');
+    window.open(`${API_BASE_URL}/books/export/csv`, '_blank');
   };
 
   return (

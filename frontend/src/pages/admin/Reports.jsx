@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent, Typography, Button, Box, Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TablePagination, TextField } from '@mui/material';
 import { PictureAsPdf } from '@mui/icons-material';
-import api from '../../services/api';
+import api, { API_BASE_URL } from '../../services/api';
 import { toast } from 'react-toastify';
 
 export default function Reports() {
@@ -32,7 +32,7 @@ export default function Reports() {
   }, [page, rowsPerPage, search]);
 
   const handleDownloadPdf = (reportType) => {
-    window.open(`http://localhost:8080/api/reports/pdf/${reportType}`, '_blank');
+    window.open(`${API_BASE_URL}/reports/pdf/${reportType}`, '_blank');
     toast.success(`Downloading ${reportType} PDF report...`);
   };
 

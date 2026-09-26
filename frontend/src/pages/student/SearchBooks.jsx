@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { Card, CardContent, Typography, TextField, Button, Box, Grid, CircularProgress, Chip, MenuItem } from '@mui/material';
-import api from '../../services/api';
+import api, { SERVER_BASE_URL } from '../../services/api';
 import { AuthContext } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
 
@@ -79,7 +79,7 @@ export default function SearchBooks() {
     if (cover.startsWith('http://') || cover.startsWith('https://')) {
       return cover;
     }
-    return `http://localhost:8080${cover}`;
+    return `${SERVER_BASE_URL}${cover}`;
   };
 
   return (

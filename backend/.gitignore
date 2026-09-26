@@ -1,0 +1,36 @@
+# Build output
+target/
+bin/
+*.class
+
+# Log files
+*.log
+
+# Maven wrapper jar if generated locally
+.mvn/
+
+# Eclipse / STS metadata
+.classpath
+.project
+.settings/
+.factorypath
+
+# IntelliJ IDEA metadata
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# VS Code metadata
+.vscode/
+
+# Environment files and temporary files
+.env
+.env.*
+!.env.example
+compile_errors.txt
+
+# Local file uploads
+uploads/*
+!uploads/.gitkeep

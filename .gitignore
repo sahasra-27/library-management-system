@@ -1,0 +1,19 @@
+# Environment files
+.env
+.env.*
+!.env.example
+
+# OS and Editor metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node modules & build artifacts
+node_modules/
+dist/
+target/
+*.log
+
+# Antigravity temporary files
+.antigravityignore
